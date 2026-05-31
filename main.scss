@@ -917,7 +917,6 @@ body {
 // ==========================================================================
 // --- MOBILE RESPONSIVE (768px)
 // ==========================================================================
-
 @media (max-width: 768px) {
 
     // GLOBAL
@@ -938,6 +937,8 @@ body {
     }
 
     .section-title-left {
+        text-align: center;
+
         h2 {
             font-size: 2rem;
         }
@@ -1014,6 +1015,30 @@ body {
     .restaurant-intro-layout {
         grid-template-columns: 1fr;
         gap: 35px;
+    }
+
+    .restaurant-story-block {
+        text-align: center;
+        max-width: 600px;
+        margin: 0 auto;
+
+        .restaurant-lead {
+            text-align: center;
+        }
+
+        .restaurant-story-text {
+            text-align: center;
+
+            p {
+                text-align: center;
+            }
+        }
+
+        .btn-primary,
+        .btn-secondary {
+            margin: 25px auto 0;
+            display: table;
+        }
     }
 
     .restaurant-clean-gallery {
@@ -1125,49 +1150,5 @@ body {
         .map-container-final {
             height: 220px;
         }
-    }
-}
-
-// ==========================================================================
-// --- EXTRA SMALL DEVICES (480px)
-// ==========================================================================
-
-@media (max-width: 480px) {
-
-    .section-title h2,
-    .section-title-left h2 {
-        font-size: 1.7rem;
-    }
-
-    .hero-center-content {
-
-        .hero-subtitle {
-            font-size: 0.75rem;
-            letter-spacing: 3px;
-        }
-
-        h1 {
-            font-size: 2rem;
-        }
-
-        p {
-            font-size: 0.95rem;
-        }
-    }
-
-    .room-gallery-container .main-display-img {
-        height: 240px;
-    }
-
-    .menu-items-display {
-        padding: 20px;
-    }
-
-    .card-room .room-image-wrapper {
-        height: 220px;
-    }
-
-    .footer-modern {
-        padding-top: 40px;
     }
 }
