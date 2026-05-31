@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="mk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тропик | Детали за Апартманот</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet/scss" type="text/css" href="main.scss">
+</head>
+<body>
+
+    <nav class="navbar single-nav">
+        <div class="nav-container">
+            <a href="index.html" class="back-link">
+                <i class="fas fa-arrow-left"></i> Назад кон почетна
+            </a>
+            <a href="index.html" class="logo">TROPIK</a>
+        </div>
+    </nav>
+
+    <main class="container section screen-layout">
+        <div class="room-grid-layout">
+            
+            <div class="room-gallery-container">
+                <div class="main-display-img">
+                    <img id="roomMainImage" src="" alt="Главен приказ">
+                </div>
+                <div class="thumbnails-track" id="thumbnailsTrack">
+                    </div>
+            </div>
+
+            <div class="room-content-showcase">
+                <div class="room-header-compact">
+                    <span class="room-meta-tag" id="roomTag">Премиум Избор</span>
+                    <h1 id="roomTitle">Се вчитава...</h1>
+                    <div class="room-price-big" id="roomPrice">од €0 <span>/ ноќ</span></div>
+                </div>
+                
+                <div class="room-services-vector-grid" id="roomServicesGrid"></div>
+
+                <div class="booking-action-card">
+                    <h3>Изберете Датуми</h3>
+                    <form class="booking-form" id="availabilityForm">
+                        <div class="form-row-inputs">
+                            <div class="form-group">
+                                <label for="checkin">Пристигнување</label>
+                                <input type="date" id="checkin" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="checkout">Заминување</label>
+                                <input type="date" id="checkout" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group margin-top-sm">
+                            <label for="guests">Број на гости</label>
+                            <select id="guests">
+                                <option value="1">1 Лице</option>
+                                <option value="2" selected>2 Лица</option>
+                                <option value="3">3 Лица</option>
+                                <option value="4">4 Лица</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn-check-availability">Провери Достапност & Пресметај</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <div class="modal-overlay" id="calculatorModal">
+        <div class="modal-box">
+            <button class="close-modal-btn" id="closeModal">&times;</button>
+            <div class="modal-icon"><i class="far fa-calendar-check"></i></div>
+            <h2>Достапноста е потврдена!</h2>
+            <p class="modal-subtitle" id="modalRoomName">Студио</p>
+            
+            <div class="calculation-summary">
+                <div class="calc-row">
+                    <span class="calc-label">Цена по вечер:</span>
+                    <span class="calc-value" id="modalPricePerNight">€0</span>
+                </div>
+                <div class="calc-row">
+                    <span class="calc-label">Престој:</span>
+                    <span class="calc-value" id="modalNightsCount">0 вечери</span>
+                </div>
+                <hr>
+                <div class="calc-row total-row">
+                    <span class="calc-label">Вкупна сума:</span>
+                    <span class="calc-value" id="modalTotalSum">€0</span>
+                </div>
+            </div>
+
+            <button class="btn-primary modal-confirm-btn" onclick="alert('Успешна резервација!'); document.getElementById('calculatorModal').classList.remove('active');">Потврди Резервација</button>
+        </div>
+    </div>
+
+    <footer class="footer-compact">
+        <p>&copy; 2026 Tropik Ресорт. Сите права се задржани.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sass.js/0.11.1/sass.sync.min.js"></script>
+    <script>
+        fetch('main.scss')
+            .then(res => res.text())
+            .then(scssText => {
+                Sass.compile(scssText, function(result) {
+                    const style = document.createElement('style');
+                    style.textContent = result.text;
+                    document.head.appendChild(style);
+                });
+            });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            let basePrice = 0;
+
+            const roomsData = {
+                'premium-suite': {
+                    title: 'Premium Suite',
+                    tag: 'Поглед на Врвови',
+                    price: 150,
+                    images: [
+                        'https://images.unsplash.com/photo-1618773928121-c32242e63f39?q=80&w=800',
+                        'https://images.unsplash.com/photo-1590490360182-c33d57733427?q=80&w=800',
+                        'https://images.unsplash.com/photo-1582719508461-905c673771fd?q=80&w=800',
+                        'https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=80&w=800'
+                    ],
+                    services: [
+                        { icon: 'fa-wifi', name: 'Брз WiFi' },
+                        { icon: 'fa-snowflake', name: 'Клима уред' },
+                        { icon: 'fa-tv', name: 'Smart TV' },
+                        { icon: 'fa-coffee', name: 'Еспресо апарат' }
+                    ]
+                },
+                'deluxe-room': {
+                    title: 'Deluxe Room',
+                    tag: 'Дрвена Архитектура',
+                    price: 110,
+                    images: [
+                        'https://images.unsplash.com/photo-1582719508461-905c673771fd?q=80&w=800',
+                        'https://images.unsplash.com/photo-1591088398332-8a7791972843?q=80&w=800',
+                        'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?q=80&w=800',
+                        'https://images.unsplash.com/photo-1618773928121-c32242e63f39?q=80&w=800'
+                    ],
+                    services: [
+                        { icon: 'fa-wifi', name: 'Брз WiFi' },
+                        { icon: 'fa-couch', name: 'Комфорна Зона' },
+                        { icon: 'fa-fire', name: 'Камин' },
+                        { icon: 'fa-snowflake', name: 'Клима' }
+                    ]
+                },
+                'family-apartment': {
+                    title: 'Family Apartment',
+                    tag: 'Две Простории',
+                    price: 140,
+                    images: [
+                        'https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=80&w=800',
+                        'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=800',
+                        'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=800',
+                        'https://images.unsplash.com/photo-1590490360182-c33d57733427?q=80&w=800'
+                    ],
+                    services: [
+                        { icon: 'fa-wifi', name: 'Брз WiFi' },
+                        { icon: 'fa-kitchen-set', name: 'Комплетна кујна' },
+                        { icon: 'fa-baby', name: 'Детски кревет' },
+                        { icon: 'fa-parking', name: 'Паркинг' }
+                    ]
+                },
+                'alpine-cabin': {
+                    title: 'Alpine Cabin Suite',
+                    tag: 'Традиционален Стил',
+                    price: 130,
+                    images: [
+                        'https://images.unsplash.com/photo-1590490360182-c33d57733427?q=80&w=800',
+                        'https://images.unsplash.com/photo-1618773928121-c32242e63f39?q=80&w=800',
+                        'https://images.unsplash.com/photo-1582719508461-905c673771fd?q=80&w=800',
+                        'https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=80&w=800'
+                    ],
+                    services: [
+                        { icon: 'fa-wifi', name: 'Брз WiFi' },
+                        { icon: 'fa-fire', name: 'Камино катче' },
+                        { icon: 'fa-couch', name: 'Модерен мебел' },
+                        { icon: 'fa-snowflake', name: 'Клима' }
+                    ]
+                },
+                'penthouse-suite': {
+                    title: 'Penthouse Suite',
+                    tag: 'Приватно Џакузи',
+                    price: 220,
+                    images: [
+                        'https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?q=80&w=800',
+                        'https://images.unsplash.com/photo-1591088398332-8a7791972843?q=80&w=800',
+                        'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?q=80&w=800',
+                        'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=800'
+                    ],
+                    services: [
+                        { icon: 'fa-wifi', name: 'Брз WiFi' },
+                        { icon: 'fa-hot-tub-person', name: 'Џакузи на тераса' },
+                        { icon: 'fa-cloud-moon', name: 'Панорамски поглед' },
+                        { icon: 'fa-wine-glass', name: 'Мини бар' }
+                    ]
+                },
+                'superior-studio': {
+                    title: 'Superior Studio',
+                    tag: 'Интелигентни Системи',
+                    price: 95,
+                    images: [
+                        'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?q=80&w=800',
+                        'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?q=80&w=800',
+                        'https://images.unsplash.com/photo-1582719508461-905c673771fd?q=80&w=800',
+                        'https://images.unsplash.com/photo-1618773928121-c32242e63f39?q=80&w=800'
+                    ],
+                    services: [
+                        { icon: 'fa-wifi', name: 'Брз WiFi' },
+                        { icon: 'fa-kitchen-set', name: 'Напредна кујна' },
+                        { icon: 'fa-snowflake', name: 'Смарт клима' },
+                        { icon: 'fa-tv', name: 'Smart TV' }
+                    ]
+                },
+                'eco-nature': {
+                    title: 'Eco Nature Room',
+                    tag: 'Одржливи Материјали',
+                    price: 85,
+                    images: [
+                        'https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=800',
+                        'https://images.unsplash.com/photo-1590490360182-c33d57733427?q=80&w=800',
+                        'https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=80&w=800',
+                        'https://images.unsplash.com/photo-1582719508461-905c673771fd?q=80&w=800'
+                    ],
+                    services: [
+                        { icon: 'fa-wifi', name: 'Брз WiFi' },
+                        { icon: 'fa-leaf', name: 'Еко вентилација' },
+                        { icon: 'fa-tree', name: 'Природен мир' },
+                        { icon: 'fa-coffee', name: 'Органско кафе' }
+                    ]
+                },
+                'tropik-royal': {
+                    title: 'Tropik Royal Presidential',
+                    tag: 'Премиум Собна Услуга',
+                    price: 250,
+                    images: [
+                        'https://images.unsplash.com/photo-1540518614846-7eded433c457?q=80&w=800',
+                        'https://images.unsplash.com/photo-1591088398332-8a7791972843?q=80&w=800',
+                        'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?q=80&w=800',
+                        'https://images.unsplash.com/photo-1618773928121-c32242e63f39?q=80&w=800'
+                    ],
+                    services: [
+                        { icon: 'fa-wifi', name: 'Брз WiFi' },
+                        { icon: 'fa-spa', name: 'Приватна Сауна' },
+                        { icon: 'fa-bell', name: 'Услуга 24/7' },
+                        { icon: 'fa-vault', name: 'Премиум сеф' }
+                    ]
+                }
+            };
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const roomKey = urlParams.get('room') || 'premium-suite';
+            const currentRoom = roomsData[roomKey];
+
+            if (currentRoom) {
+                basePrice = currentRoom.price;
+                document.getElementById("roomTitle").innerText = currentRoom.title;
+                document.getElementById("roomTag").innerText = currentRoom.tag;
+                document.getElementById("roomPrice").innerHTML = `од €${basePrice} <span>/ ноќ</span>`;
+                
+                const mainImg = document.getElementById("roomMainImage");
+                mainImg.src = currentRoom.images[0];
+
+                const thumbsTrack = document.getElementById("thumbnailsTrack");
+                thumbsTrack.innerHTML = '';
+                
+                currentRoom.images.slice(1, 4).forEach((imgUrl) => {
+                    const thumbDiv = document.createElement('div');
+                    thumbDiv.className = 'thumb-item';
+                    thumbDiv.innerHTML = `<img src="${imgUrl}" alt="Минијатура">`;
+                    
+                    thumbDiv.addEventListener('click', () => {
+                        const currentMainSrc = mainImg.src;
+                        mainImg.src = imgUrl;
+                        thumbDiv.querySelector('img').src = currentMainSrc;
+                        imgUrl = currentMainSrc;
+                    });
+                    
+                    thumbsTrack.appendChild(thumbDiv);
+                });
+
+                const servicesGrid = document.getElementById("roomServicesGrid");
+                servicesGrid.innerHTML = '';
+                currentRoom.services.forEach(srv => {
+                    servicesGrid.innerHTML += `
+                        <div class="vector-service-item">
+                            <i class="fas ${srv.icon}"></i>
+                            <span>${srv.name}</span>
+                        </div>
+                    `;
+                });
+            } else {
+                document.getElementById("roomTitle").innerText = "Собата не е пронајдена.";
+            }
+
+            const form = document.getElementById("availabilityForm");
+            const modal = document.getElementById("calculatorModal");
+            const closeModal = document.getElementById("closeModal");
+
+            if (form) {
+                form.addEventListener("submit", (e) => {
+                    e.preventDefault();
+                    const checkinVal = new Date(document.getElementById("checkin").value);
+                    const checkoutVal = new Date(document.getElementById("checkout").value);
+
+                    if (checkoutVal <= checkinVal) {
+                        alert("Датумот на заминување мора да биде по датумот на пристигнување!");
+                        return;
+                    }
+
+                    const timeDiff = Math.abs(checkoutVal.getTime() - checkinVal.getTime());
+                    const nightsCount = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+                    const totalSum = nightsCount * basePrice;
+
+                    if (currentRoom) {
+                        document.getElementById("modalRoomName").innerText = currentRoom.title;
+                        document.getElementById("modalPricePerNight").innerText = `€${basePrice}`;
+                        document.getElementById("modalNightsCount").innerText = `${nightsCount} ${nightsCount === 1 ? 'вечер' : 'вечери'}`;
+                        document.getElementById("modalTotalSum").innerText = `€${totalSum}`;
+                        modal.classList.add("active");
+                    }
+                });
+            }
+
+            if (closeModal) {
+                closeModal.addEventListener("click", () => modal.classList.remove("active"));
+            }
+            
+            window.addEventListener("click", (e) => { 
+                if (e.target === modal) modal.classList.remove('active'); 
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1173 @@
+// ==========================================================================
+// --- 1. ПРОМЕНЛИВИ (БОИ, ФОНТОВИ И ТРАНЗИЦИИ) ---
+// ==========================================================================
+$color-bg: #fbf9f6;           
+$color-primary: #4a5d4e;      
+$color-primary-light: #8da390; 
+$color-wood: #8c6d53;         
+$color-text-dark: #2c3531;    
+$color-white: #ffffff;
+
+$font-headings: 'Playfair Display', serif;
+$font-body: 'Plus Jakarta Sans', sans-serif;
+$transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+// ==========================================================================
+// --- 2. РЕСЕТ И ОСНОВИ ОД ИНТЕРФЕЈСОТ ---
+// ==========================================================================
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+html { 
+    scroll-behavior: smooth; 
+}
+
+body { 
+    background-color: $color-bg; 
+    color: $color-text-dark; 
+    font-family: $font-body; 
+    line-height: 1.7; 
+    overflow-x: hidden; 
+}
+
+.container { 
+    width: 90%; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+}
+
+.section { 
+    padding: 100px 0; 
+    @media (max-width: 768px) { padding: 60px 0; }
+}
+
+.section-title {
+    text-align: center; 
+    margin-bottom: 60px;
+    
+    span { 
+        font-family: $font-body; 
+        text-transform: uppercase; 
+        letter-spacing: 3px; 
+        font-size: 0.85rem; 
+        color: $color-wood; 
+        display: block; 
+        margin-bottom: 10px; 
+    }
+    
+    h2 { 
+        font-family: $font-headings; 
+        font-size: 2.5rem; 
+        font-weight: 400; 
+        color: $color-primary; 
+    }
+}
+
+.section-title-left {
+    margin-bottom: 25px;
+    
+    span { 
+        font-family: $font-body; 
+        text-transform: uppercase; 
+        letter-spacing: 3px; 
+        font-size: 0.85rem; 
+        color: $color-wood; 
+        display: block; 
+        margin-bottom: 8px; 
+    }
+    
+    h2 { 
+        font-family: $font-headings; 
+        font-size: 2.6rem; 
+        font-weight: 400; 
+        color: $color-primary; 
+        line-height: 1.2;
+    }
+}
+
+// ==========================================================================
+// --- 3. КОПЧИЊА ---
+// ==========================================================================
+.btn-primary {
+    display: inline-block; 
+    padding: 15px 35px; 
+    background-color: $color-primary; 
+    color: $color-white; 
+    text-decoration: none; 
+    font-weight: 500; 
+    font-size: 0.95rem;
+    letter-spacing: 0.5px; 
+    border-radius: 4px; 
+    transition: $transition-smooth; 
+    border: none; 
+    cursor: pointer;
+    
+    &:hover { 
+        background-color: $color-wood; 
+        transform: translateY(-2px); 
+    }
+}
+
+.btn-secondary {
+    display: inline-block; 
+    padding: 12px 24px; 
+    background-color: $color-primary; 
+    color: $color-white; 
+    text-decoration: none; 
+    font-size: 0.85rem; 
+    font-weight: 500; 
+    border-radius: 4px; 
+    transition: $transition-smooth; 
+    text-align: center; 
+    border: none; 
+    width: 100%;
+    
+    &:hover { 
+        background-color: $color-wood; 
+    }
+}
+
+// ==========================================================================
+// -// ======================================// ==========================================================================
+// --- 4. МОДЕРНА НАВИГАЦИЈА (ЧИСТА И ЕЛЕГАНТНА) ---
+// ==========================================================================
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: $color-primary; 
+    padding: 15px 0;
+    transition: all 0.3s ease;
+    
+    // Стандардната висина на овој navbar со падингот е околу 70px-75px
+    
+    .nav-container { 
+        display: flex; 
+        justify-content: space-between; 
+        align-items: center; 
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .logo { 
+        font-family: $font-headings; 
+        font-size: 1.8rem; 
+        font-weight: 700; 
+        color: $color-white; 
+        text-decoration: none; 
+        letter-spacing: 1px;
+    }
+    
+    .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 40px; 
+
+        a {
+            color: $color-white; 
+            text-decoration: none;
+            font-size: 0.95rem; 
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 5px 0;
+            border-bottom: 2px solid transparent;
+            transition: 0.3s;
+            
+            &:hover { border-bottom-color: $color-white; }
+        }
+    }
+}
+
+// ==========================================================================
+// ==
+
+// ==========================================================================
+// --- 5. COMPACT HERO (ПРАВОАГОЛНИ СЛИКИ СО ДОПОЛНИТЕЛЕН ПРОСТОР ПОД NAV) ---
+// ==========================================================================
+.hero-fullscreen {
+    position: relative;
+    width: 100%;
+    height: 85vh; 
+    min-height: 580px;
+    background-color: #fbf9f6; ;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    // Зголемено за +20px за да има убав чист простор под менито
+    margin-top: 85px; 
+    
+    @media (max-width: 768px) {
+        margin-top: 85px; // Прилагодено просторче и за мобилен
+    }
+}
+
+// --- ПОДВИЖЕН КОЛАЖ ВО ПОЗАДИНА ---
+.hero-collage-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px; 
+    padding: 5px 0; 
+    opacity: 0.14; 
+    pointer-events: none;
+    z-index: 1;
+}
+
+.collage-row {
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+
+    .collage-track {
+        display: flex;
+        width: max-content;
+        gap: 10px; 
+    }
+
+    &.row-top .collage-track {
+        animation: marqueeLeft 38s linear infinite;
+    }
+
+    &.row-bottom .collage-track {
+        animation: marqueeRight 38s linear infinite;
+    }
+}
+
+.collage-slide {
+    // ЗГОЛЕМЕНО: Од 290px на 380px за да се добијат убави издолжени правоаголници
+    width: 380px;
+    height: calc(42.5vh - 10px); 
+    flex-shrink: 0;
+    border-radius: 0 !important; // Остри рабови како што се договоривме
+    overflow: hidden;
+
+    @media (max-width: 768px) {
+        width: 220px; // Соодветен правоаголен сооднос и за мобилни екрани
+        height: calc(42.5vh - 15px);
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+// --- ЦЕНТРИРАН ТЕКСТ (ДИРЕКТНО НАД СЛИКИТЕ) ---
+.hero-center-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 0 20px 30px;
+    width: 100%;
+    max-width: 750px;
+
+    .hero-subtitle {
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        color: $color-wood;
+        font-weight: 600;
+        margin-bottom: 20px;
+        display: block;
+    }
+
+    h1 {
+        font-family: $font-headings;
+        font-size: 4.2rem;
+        color: $color-primary;
+        line-height: 1.15;
+        margin-bottom: 25px;
+        font-weight: 400;
+
+        @media (max-width: 992px) { font-size: 3.2rem; }
+        @media (max-width: 768px) { font-size: 2.5rem; }
+    }
+
+    p {
+        font-size: 1.15rem;
+        color: #1a1a1a; 
+        line-height: 1.7;
+        margin-bottom: 40px;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-actions {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+
+        @media (max-width: 480px) {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .btn-primary, .btn-outline {
+            padding: 14px 35px;
+            font-weight: 600;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: 0.3s ease;
+            
+            @media (max-width: 480px) { width: 100%; max-width: 280px; }
+        }
+
+        .btn-primary {
+            background-color: $color-primary;
+            color: $color-white;
+            border: 2px solid $color-primary;
+            &:hover { background-color: $color-wood; border-color: $color-wood; }
+        }
+
+        .btn-outline {
+            border: 2px solid $color-primary;
+            color: $color-primary;
+            &:hover { background-color: $color-primary; color: white; }
+        }
+    }
+}
+
+// --- АНИМАЦИИ ---
+@keyframes marqueeLeft {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+@keyframes marqueeRight {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+}
+// ==========================================================================
+// --- 6. СЛАЈДЕР ЗА СОБИТЕ (ПОЧЕТНА) ---
+// ==========================================================================
+.slider-wrapper {
+    position: relative; 
+    display: flex; 
+    align-items: center; 
+    width: 100%; 
+    padding: 0 45px;
+    @media (max-width: 768px) { padding: 0; }
+}
+
+.slider-container {
+    width: 100%; 
+    overflow: hidden; 
+    padding: 10px 0;
+}
+
+.slider-track {
+    display: flex; 
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1); 
+}
+
+.card-room {
+    flex: 0 0 33.333%; 
+    padding: 0 15px; 
+    display: flex; 
+    flex-direction: column;
+    
+    @media (max-width: 992px) { flex: 0 0 50%; }
+    @media (max-width: 768px) { flex: 0 0 100%; padding: 0; }
+
+    .room-image-wrapper {
+        position: relative; 
+        width: 100%; 
+        height: 260px; 
+        border-radius: 6px 6px 0 0; 
+        overflow: hidden;
+        
+        img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+    }
+
+    &:hover .room-image-wrapper img { transform: scale(1.05); }
+
+    .card-info {
+        background-color: $color-white; 
+        padding: 25px; 
+        border-radius: 0 0 6px 6px; 
+        display: flex; 
+        flex-direction: column; 
+        flex-grow: 1;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.01);
+        
+        h3 { font-family: $font-headings; font-size: 1.3rem; color: $color-primary; font-weight: 400; margin-bottom: 10px; }
+        .story { font-size: 0.9rem; color: #555; margin-bottom: 25px; min-height: 60px; line-height: 1.5; }
+    }
+}
+
+.slider-arrow {
+    position: absolute; top: 50%; transform: translateY(-50%); width: 45px; height: 45px; background-color: $color-white; border: 1px solid #e4ded5; border-radius: 50%; color: $color-primary; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 5; transition: $transition-smooth;
+    &:hover { background-color: $color-primary; color: $color-white; }
+    &.prev-btn { left: 0; }
+    &.next-btn { right: 0; }
+    @media (max-width: 768px) { display: none; }
+}
+
+// ==========================================================================
+// --- 7. РЕСТОРАН И СИМЕТРИЧНА ГАЛЕРИЈА ОД 4 СЛИКИ (ПОЧЕТНА) ---
+// ==========================================================================
+.restaurant-section {
+    background-color: #f3f0ea;
+}
+
+.restaurant-intro-layout {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 60px;
+    align-items: center;
+
+    @media (max-width: 992px) {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+
+.restaurant-story-block {
+    .restaurant-lead {
+        font-family: $font-headings;
+        font-size: 1.45rem;
+        color: $color-wood;
+        line-height: 1.5;
+        margin-bottom: 25px;
+        font-style: italic;
+    }
+
+    .restaurant-story-text {
+        p {
+            font-size: 0.98rem;
+            color: #4e5552;
+            margin-bottom: 20px;
+            line-height: 1.7;
+            
+            &:last-child { margin-bottom: 0; }
+        }
+    }
+}
+
+.restaurant-clean-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+
+    .gallery-photo {
+        width: 100%;
+        height: 220px; 
+        border-radius: 6px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            transition: transform 0.5s ease;
+        }
+
+        &:hover img { transform: scale(1.05); }
+    }
+
+    @media (max-width: 576px) {
+        gap: 10px;
+        .gallery-photo { height: 140px; } 
+    }
+}
+
+// ==========================================================================
+// --- 8. СИСТЕМ ЗА МЕHИ СТРАНИЦА БЕЗ СКРОЛ (menu.html) ---
+// ==========================================================================
+.menu-screen-layout {
+    padding-top: 40px;
+}
+
+.menu-grid-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 40px;
+    align-items: start;
+    margin-top: 30px;
+
+    @media (max-width: 850px) { grid-template-columns: 1fr; gap: 30px; }
+}
+
+.menu-categories-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background-color: $color-white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.02);
+
+    @media (max-width: 850px) {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 8px;
+        padding: 12px;
+        background-color: transparent;
+        box-shadow: none;
+    }
+
+    .menu-cat-btn {
+        width: 100%;
+        text-align: left;
+        padding: 14px 18px;
+        background-color: transparent;
+        border: 1px solid #edf0ee;
+        font-family: $font-body;
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: $color-text-dark;
+        cursor: pointer;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        transition: $transition-smooth;
+
+        @media (max-width: 850px) {
+            padding: 12px 14px;
+            font-size: 0.88rem;
+            background-color: $color-white;
+            border: 1px solid #e4ded5;
+        }
+
+        i { color: $color-primary-light; font-size: 1rem; width: 20px; }
+
+        &:hover { background-color: #f4f0ea; border-color: $color-primary-light; color: $color-primary; }
+        &.active { background-color: $color-primary; border-color: $color-primary; color: $color-white; i { color: $color-white; } }
+    }
+}
+
+.menu-items-display {
+    background-color: $color-white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.02);
+    min-height: 450px;
+
+    @media (max-width: 576px) { padding: 25px; }
+
+    .menu-panel {
+        display: none;
+        flex-direction: column;
+        gap: 28px;
+        opacity: 0;
+        transform: translateY(10px);
+        animation: fadeInPanel 0.4s forwards cubic-bezier(0.16, 1, 0.3, 1);
+        &.active { display: flex; }
+    }
+}
+
+.menu-card-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: 22px;
+    border-bottom: 1px dashed #edf0ee;
+    gap: 20px;
+    &:last-child { border: none; padding-bottom: 0; }
+
+    .menu-item-details {
+        h4 { font-family: $font-headings; font-size: 1.3rem; color: $color-primary; font-weight: 400; margin-bottom: 5px; }
+        p { font-size: 0.88rem; color: #666; line-height: 1.5; }
+    }
+    .menu-item-price { font-family: $font-body; font-weight: 600; color: $color-wood; font-size: 1.15rem; white-space: nowrap; }
+}
+
+@keyframes fadeInPanel { to { opacity: 1; transform: translateY(0); } }
+
+// ==========================================================================
+// --- 9. ВНАТРЕШНА СТРАНИЦА ЗА АПАРТМАНИ (apartments.html) ---
+// ==========================================================================
+.single-nav {
+    background-color: $color-primary !important; 
+    position: relative !important; 
+    padding: 15px 0;
+    
+    .back-link { 
+        color: $color-white; text-decoration: none; font-size: 0.95rem; display: flex; align-items: center; gap: 8px;
+        &:hover { color: $color-primary-light; }
+    }
+}
+
+.screen-layout {
+    // ПОПРАВЕНО: Отстранети се max-height и overflow: hidden за футерот да не лета нагоре
+    width: 100%;
+    padding-top: 60px;    
+    padding-bottom: 60px; 
+
+    @media (max-width: 992px) {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+}
+
+.room-grid-layout {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 40px;
+    align-items: start;
+
+    @media (max-width: 992px) {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+.room-gallery-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    .main-display-img {
+        width: 100%;
+        height: 420px; 
+        border-radius: 6px;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .thumbnails-track {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+
+        .thumb-item {
+            height: 100px;
+            border-radius: 4px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 1px solid transparent;
+            transition: all 0.2s ease;
+
+            &:hover { opacity: 0.85; border-color: $color-primary; }
+            img { width: 100%; height: 100%; object-fit: cover; }
+        }
+    }
+}
+
+.room-content-showcase {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .room-header-compact {
+        margin-bottom: 15px;
+        .room-meta-tag { color: $color-wood; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; font-weight: 600; }
+        h1 { font-family: $font-headings; font-size: 2.2rem; color: $color-primary; font-weight: 400; margin: 5px 0; }
+        .room-price-big { font-size: 1.3rem; font-weight: 600; span { font-size: 0.85rem; color: #777; } }
+    }
+}
+
+.room-services-vector-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin: 15px 0 25px 0;
+    padding: 15px 20px;
+    background-color: #f4f0ea; 
+    border-radius: 6px;
+
+    .vector-service-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        i { font-size: 1.1rem; color: $color-primary; width: 20px; text-align: center; }
+        span { font-size: 0.9rem; font-weight: 500; }
+    }
+}
+
+.booking-action-card {
+    background: $color-white;
+    padding: 25px;
+    border-radius: 6px;
+    border-top: 4px solid $color-primary;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+
+    h3 { font-family: $font-headings; font-size: 1.2rem; color: $color-primary; margin-bottom: 15px; }
+
+    .booking-form {
+        display: flex;
+        flex-direction: column;
+        .form-row-inputs { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: $color-wood; font-weight: 600; }
+            
+            input, select { 
+                width: 100%; 
+                padding: 10px 14px; 
+                border: 1px solid #e4ded5; 
+                background-color: $color-bg; 
+                border-radius: 4px; 
+                font-family: $font-body; 
+                font-size: 0.85rem; 
+                color: $color-text-dark;
+                outline: none;
+                
+                &::placeholder {
+                    color: #999;
+                    opacity: 1;
+                }
+            }
+        }
+
+        .btn-check-availability { margin-top: 15px; width: 100%; padding: 12px; background-color: $color-primary; color: $color-white; border: none; border-radius: 4px; cursor: pointer; transition: $transition-smooth; &:hover { background-color: $color-wood; } }
+    }
+}
+
+// ==========================================================================
+// --- 10. ИНТЕРАКТИВЕН МОДАЛЕН ПОП-АП (КАЛКУЛАТОР) ---
+// ==========================================================================
+.modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.4); backdrop-filter: blur(8px); z-index: 1000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.4s ease;
+    &.active { opacity: 1; pointer-events: auto; .modal-box { transform: translateY(0); opacity: 1; } }
+}
+
+.modal-box {
+    background-color: $color-white; width: 90%; max-width: 420px; padding: 35px 25px; border-radius: 8px; position: relative; text-align: center; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15); transform: translateY(30px); opacity: 0; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    .close-modal-btn { position: absolute; top: 12px; right: 18px; background: none; border: none; font-size: 1.8rem; color: #aaa; cursor: pointer; &:hover { color: $color-text-dark; } }
+    .modal-icon { font-size: 2.5rem; color: $color-primary; margin-bottom: 10px; }
+    h2 { font-family: $font-headings; font-size: 1.6rem; color: $color-primary; }
+    .modal-subtitle { font-size: 0.9rem; color: $color-wood; font-weight: 500; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; }
+    
+    .calculation-summary {
+        background-color: $color-bg; padding: 15px; border-radius: 6px; margin-bottom: 25px; text-align: left;
+        .calc-row { display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 0.9rem; .calc-label { color: #666; } .calc-value { font-weight: 600; }
+            &.total-row { margin-top: 10px; font-size: 1.1rem; .calc-label { color: $color-primary; font-weight: 600; } .calc-value { color: $color-wood; font-size: 1.2rem; font-weight: 700; } }
+        }
+        hr { border: none; border-top: 1px dashed #e4ded5; margin: 10px 0; }
+    }
+}
+
+
+
+
+// ==========================================================================
+// --- 11. МОДЕРЕН ФУТЕР (50% - 50% РАСПОРЕД) ---
+// ==========================================================================
+.footer-modern {
+    background-color: $color-primary;
+    color: rgba($color-white, 0.8);
+    padding: 50px 0 20px 0;
+    font-family: $font-body;
+    border-top: 2px solid $color-wood;
+    margin-top: auto; // Ова го турка футерот на дното ако страната е кратка
+
+    .footer-split-layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr; // Точно 50% - 50%
+        gap: 50px;
+        align-items: start;
+        margin-bottom: 40px;
+
+        @media (max-width: 850px) {
+            grid-template-columns: 1fr; // На мобилен се редат еден под друг
+            gap: 35px;
+        }
+    }
+
+    // --- ЛЕВА СТРАНА (МАПА) ---
+    .footer-map-side {
+        h4 { font-family: $font-headings; font-size: 1.3rem; color: $color-white; margin-bottom: 4px; }
+        .map-location-sub { font-size: 0.85rem; color: rgba($color-white, 0.55); margin-bottom: 15px; display: flex; align-items: center; gap: 6px; }
+    }
+
+    .map-container-final {
+        width: 100%;
+        height: 180px;
+        border-radius: 6px;
+        overflow: hidden;
+        position: relative;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+
+        .map-image { width: 100%; height: 100%; object-fit: cover; }
+
+        .btn-map-overlay {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: $color-primary;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.2);
+
+            &:hover { background-color: $color-wood; transform: translateX(-50%) translateY(-2px); }
+        }
+    }
+
+    // --- ДЕСНА СТРАНА (ИНФО) ---
+    .footer-info-side {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        padding-top: 5px;
+    }
+
+    .info-brand-block {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid rgba($color-white, 0.08);
+        padding-bottom: 15px;
+
+        .footer-logo { font-family: $font-body; font-size: 1.4rem; font-weight: 600; color: $color-white; text-decoration: none; letter-spacing: 2px; text-transform: uppercase; }
+        
+        .footer-socials {
+            display: flex;
+            gap: 10px;
+            a {
+                width: 34px;
+                height: 34px;
+                background-color: rgba($color-white, 0.04);
+                border: 1px solid rgba($color-white, 0.08);
+                color: $color-white;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-decoration: none;
+                font-size: 0.9rem;
+                transition: $transition-smooth;
+                &:hover { background-color: $color-wood; border-color: $color-wood; transform: translateY(-2px); }
+            }
+        }
+    }
+
+    .info-contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+
+        .contact-col {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            h5 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: $color-wood; font-weight: 600; }
+            .contact-item {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                font-size: 0.88rem;
+                color: rgba($color-white, 0.8);
+                i { color: $color-primary-light; font-size: 0.85rem; width: 14px; text-align: center; }
+                a { color: rgba($color-white, 0.8); text-decoration: none; transition: color 0.2s ease; &:hover { color: $color-white; } }
+            }
+        }
+    }
+
+    // --- ДОЛЕН ДЕЛ ---
+    .footer-bottom {
+        padding-top: 15px;
+        border-top: 1px solid rgba($color-white, 0.05);
+        text-align: center;
+        p { font-size: 0.78rem; color: rgba($color-white, 0.35); }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ==========================================================================
+// --- MOBILE RESPONSIVE (768px)
+// ==========================================================================
+
+@media (max-width: 768px) {
+
+    // GLOBAL
+    .container {
+        width: 92%;
+    }
+
+    .section {
+        padding: 60px 0;
+    }
+
+    .section-title {
+        margin-bottom: 40px;
+
+        h2 {
+            font-size: 2rem;
+        }
+    }
+
+    .section-title-left {
+        h2 {
+            font-size: 2rem;
+        }
+    }
+
+    // NAVBAR
+    .navbar {
+        padding: 12px 0;
+
+        .logo {
+            font-size: 1.5rem;
+        }
+
+        .nav-links {
+            gap: 15px;
+
+            a {
+                font-size: 0.8rem;
+            }
+        }
+    }
+
+    // HERO
+    .hero-fullscreen {
+        height: auto;
+        min-height: 600px;
+        margin-top: 85px;
+        padding: 60px 0;
+    }
+
+    .collage-slide {
+        width: 220px;
+        height: calc(42.5vh - 15px);
+    }
+
+    .hero-center-content {
+
+        h1 {
+            font-size: 2.4rem;
+            line-height: 1.2;
+        }
+
+        p {
+            font-size: 1rem;
+        }
+
+        .hero-actions {
+            flex-direction: column;
+            align-items: center;
+
+            .btn-primary,
+            .btn-outline {
+                width: 100%;
+                max-width: 280px;
+            }
+        }
+    }
+
+    // ROOMS SLIDER
+    .slider-wrapper {
+        padding: 0;
+    }
+
+    .card-room {
+        flex: 0 0 100%;
+        padding: 0;
+    }
+
+    .slider-arrow {
+        display: none;
+    }
+
+    // RESTAURANT
+    .restaurant-intro-layout {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .restaurant-clean-gallery {
+        gap: 10px;
+
+        .gallery-photo {
+            height: 140px;
+        }
+    }
+
+    // MENU
+    .menu-grid-layout {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .menu-categories-sidebar {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0;
+        background: transparent;
+        box-shadow: none;
+
+        .menu-cat-btn {
+            padding: 12px;
+            font-size: 0.85rem;
+        }
+    }
+
+    .menu-items-display {
+        padding: 25px;
+    }
+
+    .menu-card-item {
+        flex-direction: column;
+        gap: 10px;
+
+        .menu-item-price {
+            align-self: flex-start;
+        }
+    }
+
+    // APARTMENT PAGE
+    .room-grid-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .room-gallery-container {
+
+        .main-display-img {
+            height: 300px;
+        }
+
+        .thumbnails-track {
+            grid-template-columns: repeat(3, 1fr);
+
+            .thumb-item {
+                height: 80px;
+            }
+        }
+    }
+
+    .room-header-compact {
+
+        h1 {
+            font-size: 1.9rem;
+        }
+    }
+
+    .room-services-vector-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .booking-action-card {
+
+        .booking-form {
+
+            .form-row-inputs {
+                grid-template-columns: 1fr;
+            }
+        }
+    }
+
+    // MODAL
+    .modal-box {
+        width: 92%;
+        padding: 30px 20px;
+    }
+
+    // FOOTER
+    .footer-modern {
+
+        .footer-split-layout {
+            grid-template-columns: 1fr;
+            gap: 35px;
+        }
+
+        .info-brand-block {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .info-contact-grid {
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+
+        .map-container-final {
+            height: 220px;
+        }
+    }
+}
+
+// ==========================================================================
+// --- EXTRA SMALL DEVICES (480px)
+// ==========================================================================
+
+@media (max-width: 480px) {
+
+    .section-title h2,
+    .section-title-left h2 {
+        font-size: 1.7rem;
+    }
+
+    .hero-center-content {
+
+        .hero-subtitle {
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+        }
+
+        h1 {
+            font-size: 2rem;
+        }
+
+        p {
+            font-size: 0.95rem;
+        }
+    }
+
+    .room-gallery-container .main-display-img {
+        height: 240px;
+    }
+
+    .menu-items-display {
+        padding: 20px;
+    }
+
+    .card-room .room-image-wrapper {
+        height: 220px;
+    }
+
+    .footer-modern {
+        padding-top: 40px;
+    }
+}

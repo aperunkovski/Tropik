@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="mk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тропик Ресорт & Ресторан</title>
+    
+    <!-- Google Fonts & FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Врска до главниот SCSS -->
+    <link rel="stylesheet/scss" type="text/css" href="main.scss">
+</head>
+<body>
+
+    <!-- Главна Навигација (Modern Structural Style) -->
+    <nav class="navbar">
+      <div class="nav-container">
+    <a href="index.html" class="logo">
+        <img src="img/tropiklogo.png" width="110" height="40"          alt="Tropik Лого" class="logo-img">
+    </a>
+    <ul class="nav-links">
+        <li><a href="#hero">Почетна</a></li>
+        <li><a href="#rooms">Апартмани</a></li>
+        <li><a href="#restaurant">Ресторан</a></li>
+        <li><a href="#contact">Контакт</a></li>
+    </ul>
+</div>
+    </nav>
+<section class="hero-fullscreen">
+    
+    <div class="hero-collage-background">
+        
+        <div class="collage-row row-top">
+            <div class="collage-track">
+                <div class="collage-slide"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=400" alt="Restoran 1"></div>
+                <div class="collage-slide"><img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=400" alt="Restoran 2"></div>
+                <div class="collage-slide"><img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=80&w=400" alt="Apartman 1"></div>
+                <div class="collage-slide"><img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?q=80&w=400" alt="Apartman 2"></div>
+                <div class="collage-slide"><img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=400" alt="Hrana 1"></div>
+                
+                <div class="collage-slide"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=400" alt="Restoran 1"></div>
+                <div class="collage-slide"><img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=400" alt="Restoran 2"></div>
+                <div class="collage-slide"><img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=80&w=400" alt="Apartman 1"></div>
+                <div class="collage-slide"><img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?q=80&w=400" alt="Apartman 2"></div>
+                <div class="collage-slide"><img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=400" alt="Hrana 1"></div>
+            </div>
+        </div>
+
+        <div class="collage-row row-bottom">
+            <div class="collage-track">
+                <div class="collage-slide"><img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=400" alt="Restoran 3"></div>
+                <div class="collage-slide"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=400" alt="Hrana 2"></div>
+                <div class="collage-slide"><img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?q=80&w=400" alt="Apartman 3"></div>
+                <div class="collage-slide"><img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?q=80&w=400" alt="Apartman 4"></div>
+                <div class="collage-slide"><img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=400" alt="Restoran 4"></div>
+                
+                <div class="collage-slide"><img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=400" alt="Restoran 3"></div>
+                <div class="collage-slide"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=400" alt="Hrana 2"></div>
+                <div class="collage-slide"><img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?q=80&w=400" alt="Apartman 3"></div>
+                <div class="collage-slide"><img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?q=80&w=400" alt="Apartman 4"></div>
+                <div class="collage-slide"><img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=400" alt="Restoran 4"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="hero-center-content">
+        <span class="hero-subtitle">Локација во срцето на природата</span>
+        <h1>Природно уживање за сите сетила</h1>
+        <p>Откријте го совршениот спој на традиционалната гостопримливост и модерниот комфор во нашите апартмани и премиум ресторан.</p>
+        
+        <div class="hero-actions">
+            <a href="apartments.html" class="btn-primary">Апартмани</a>
+            <a href="menu.html" class="btn-outline">Наш Ресторан</a>
+        </div>
+    </div>
+
+</section>
+    <!-- АПАРТМАНИ СЕКЦИЈА (СЛАЈДЕР СО 8 КАРТИЧКИ) -->
+    <section id="rooms" class="section">
+        <div class="container">
+            <div class="section-title">
+                <span>Вашето идеално бегство</span>
+                <h2>Премиум Сместување</h2>
+            </div>
+            
+            <div class="slider-wrapper">
+                <button class="slider-arrow prev-btn"><i class="fas fa-chevron-left"></i></button>
+                
+                <div class="slider-container">
+                    <div class="slider-track">
+                        <!-- 1 -->
+                        <div class="card-room">
+                            <div class="room-image-wrapper">
+                                <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?q=80&w=500" alt="Премиум Сјут">
+                            </div>
+                            <div class="card-info">
+                                <h3>Premium Suite</h3>
+                                <p class="story">Пространа соба дизајнирана со модерни минималистички елементи и панорамски поглед на планинските врвови.</p>
+                                <a href="apartments.html" class="btn-primary" style="font-size: 0.85rem; padding: 12px; text-align: center;">Повеќе детали</a>
+                            </div>
+                        </div>
+                        <!-- 2 -->
+                        <div class="card-room">
+                            <div class="room-image-wrapper">
+                                <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?q=80&w=500" alt="Делукс Соба">
+                            </div>
+                            <div class="card-info">
+                                <h3>Deluxe Room</h3>
+                                <p class="story">Совршен баланс на топла дрвена архитектура, комфор и луксузни погодности идеални за парови.</p>
+                                <a href="apartments.html" class="btn-primary" style="font-size: 0.85rem; padding: 12px; text-align: center;">Повеќе детали</a>
+                            </div>
+                        </div>
+                        <!-- 3 -->
+                        <div class="card-room">
+                            <div class="room-image-wrapper">
+                                <img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=80&w=500" alt="Фамилијарен Апартман">
+                            </div>
+                            <div class="card-info">
+                                <h3>Family Apartment</h3>
+                                <p class="story">Комфор со две посебни простории, комплетно опремен за вашето релаксирано семејно планинско уживање.</p>
+                                <a href="apartments.html" class="btn-primary" style="font-size: 0.85rem; padding: 12px; text-align: center;">Повеќе детали</a>
+                            </div>
+                        </div>
+                        <!-- 4 -->
+                        <div class="card-room">
+                            <div class="room-image-wrapper">
+                                <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?q=80&w=500" alt="Алпска Колиба">
+                            </div>
+                            <div class="card-info">
+                                <h3>Alpine Cabin Sjut</h3>
+                                <p class="story">Традиционален планински стил комбиниран со врвен и модерен мебел и сопствено камино катче.</p>
+                                <a href="apartments.html" class="btn-primary" style="font-size: 0.85rem; padding: 12px; text-align: center;">Повеќе детали</a>
+                            </div>
+                        </div>
+                        <!-- 5 -->
+                        <div class="card-room">
+                            <div class="room-image-wrapper">
+                                <img src="https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?q=80&w=500" alt="Пентхаус Ресорт">
+                            </div>
+                            <div class="card-info">
+                                <h3>Penthouse Suite</h3>
+                                <p class="story">Највисокото ниво на луксуз со приватно џакузи на терасата и неограничен поглед кон шумата.</p>
+                                <a href="apartments.html" class="btn-primary" style="font-size: 0.85rem; padding: 12px; text-align: center;">Повеќе детали</a>
+                            </div>
+                        </div>
+                        <!-- 6 -->
+                        <div class="card-room">
+                            <div class="room-image-wrapper">
+                                <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?q=80&w=500" alt="Супериор Студио">
+                            </div>
+                            <div class="card-info">
+                                <h3>Superior Studio</h3>
+                                <p class="story">Елегантно и компактно студио опремено со напредна кујна и интелигентни системи за деноноќен комфор.</p>
+                                <a href="apartments.html" class="btn-primary" style="font-size: 0.85rem; padding: 12px; text-align: center;">Повеќе детали</a>
+                            </div>
+                        </div>
+                        <!-- 7 -->
+                        <div class="card-room">
+                            <div class="room-image-wrapper">
+                                <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=500" alt="Еко Престој">
+                            </div>
+                            <div class="card-info">
+                                <h3>Eco Nature Room</h3>
+                                <p class="story">Изградена целосно од одржливи локални материјали, со природна вентилација и термален мир.</p>
+                                <a href="apartments.html" class="btn-primary" style="font-size: 0.85rem; padding: 12px; text-align: center;">Повеќе детали</a>
+                            </div>
+                        </div>
+                        <!-- 8 -->
+                        <div class="card-room">
+                            <div class="room-image-wrapper">
+                                <img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?q=80&w=500" alt="Тропик Ројал">
+                            </div>
+                            <div class="card-info">
+                                <h3>Tropik Royal Presidential</h3>
+                                <p class="story">Нашиот најголем апартман со три спални соби, конференциска маса и премиум собна услуга во секое време.</p>
+                                <a href="apartments.html" class="btn-primary" style="font-size: 0.85rem; padding: 12px; text-align: center;">Повеќе детали</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="slider-arrow next-btn"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- РЕСТОРАН СЕКЦИЈА (ПРОЧИСТЕНА И РАСТОВАРЕНА ОД ЗБУТКУВАЊА) -->
+    <section id="restaurant" class="restaurant-section section">
+        <div class="container">
+            
+            <div class="restaurant-intro-layout">
+                <!-- Текст блок со контролирани маргини и дишење -->
+                <div class="restaurant-story-block" style="padding-right: 20px;">
+                    <div class="section-title-left">
+                        <span>Автентична Кујна</span>
+                        <h2>Ресторан Тропик</h2>
+                    </div>
+                    
+                    <p class="restaurant-lead" style="margin-bottom: 30px; line-height: 1.6;">
+                        Свежи локални состојки, традиционални рецепти и пријатен планински амбиент кој го одзема здивот.
+                    </p>
+                    
+                    <div class="restaurant-story-text" style="display: flex; flex-direction: column; gap: 20px;">
+                        <p>Нашиот ресторан е срцето на целиот ресорт. Храната овде се подготвува со огромна посветеност и љубов според автентични рецепти, но со модерна визуелна нојанса која импресионира.</p>
+                        <p>Од познатата традиционална пастрмајлија печена на жар, па сè до внимателно селектирани локални вина и домашни ракии, секој залак е уникатно и незаборавно гастрономско доживување.</p>
+                    </div>
+                    
+                    <div class="restaurant-action" style="margin-top: 40px;">
+                        <a href="menu.html" class="btn-primary">Погледни го целосното мени <i class="fas fa-utensils" style="margin-left: 10px;"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Совршено рамна 2x2 галерија -->
+                <div class="restaurant-clean-gallery">
+                    <div class="gallery-photo">
+                        <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=500" alt="Амбиент Ресторан">
+                    </div>
+                    <div class="gallery-photo">
+                        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=500" alt="Сочна Скара">
+                    </div>
+                    <div class="gallery-photo">
+                        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=500" alt="Крцкава Пица">
+                    </div>
+                    <div class="gallery-photo">
+                        <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?q=80&w=500" alt="Десерт">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Футер -->
+<footer class="footer-modern">
+    <div class="container">
+        <div class="footer-split-layout">
+            
+            <!-- Лева страна: Слика од мапа + Копче -->
+            <div class="footer-map-side">
+                <h4>Најдете нè тука</h4>
+                <p class="map-location-sub"><i class="fas fa-map-marker-alt"></i> Ул. Пехчевски Водопади бр. 12, Пехчево</p>
+                
+                <div class="map-container-final">
+                    <!-- Твојата слика (скриншот) -->
+                    <img src="map-location.png" alt="Локација на Tropik" class="map-image">
+                    
+                    <!-- Копче кое лебди преку мапата -->
+                    <a href="https://maps.app.goo.gl/fLiPCZZRt53LDFW16" target="_blank" class="btn-map-overlay">
+                        <i class="fas fa-directions"></i> Отвори во Maps
+                    </a>
+                </div>
+            </div>
+
+            <!-- Десна страна: Лого, Социјални и Контакти -->
+            <div class="footer-info-side">
+                <div class="info-brand-block">
+                    <a href="index.html" class="footer-logo">TROPIK</a>
+                    <div class="footer-socials">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <div class="info-contact-grid">
+                    <div class="contact-col">
+                        <h5>Апартмани</h5>
+                        <div class="contact-item"><i class="fas fa-phone-alt"></i> <a href="tel:+38970111222">+389 70 111 222</a></div>
+                        <div class="contact-item"><i class="fas fa-envelope"></i> <a href="mailto:apartments@tropik.com">apartments@tropik.com</a></div>
+                    </div>
+                    <div class="contact-col">
+                        <h5>Ресторан</h5>
+                        <div class="contact-item"><i class="fas fa-phone-alt"></i> <a href="tel:+38971333444">+389 71 333 444</a></div>
+                        <div class="contact-item"><i class="fas fa-clock"></i> <span>12:00 - 23:00</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 ТРОПИК Ресорт. Сите права се задржани.</p>
+        </div>
+    </div>
+</footer>
+    <!-- SCSS Компајлер за прелистувач -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sass.js/0.11.1/sass.sync.min.js"></script>
+    <script>
+        fetch('main.scss')
+            .then(res => res.text())
+            .then(scssText => {
+                Sass.compile(scssText, function(result) {
+                    const style = document.createElement('style');
+                    style.textContent = result.text;
+                    document.head.appendChild(style);
+                });
+            });
+    </script>
+
+    <!-- Прецизен JS за Слајдерот кој поддржува бесконечен број картички (во овој случај сите 8) -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const track = document.querySelector(".slider-track");
+            const cards = document.querySelectorAll(".card-room");
+            const nextBtn = document.querySelector(".next-btn");
+            const prevBtn = document.querySelector(".prev-btn");
+            
+            let index = 0;
+            
+            function updateSlider() {
+                if(cards.length === 0) return;
+                let cardWidth = cards[0].getBoundingClientRect().width;
+                track.style.transform = `translateX(-${index * cardWidth}px)`;
+            }
+            
+            nextBtn.addEventListener("click", () => {
+                // Пресметка за максимален индекс во зависност од ширината на екранот
+                let visibleCards = 3;
+                if (window.innerWidth <= 992) visibleCards = 2;
+                if (window.innerWidth <= 768) visibleCards = 1;
+                
+                let maxIndex = cards.length - visibleCards;
+                if (index < maxIndex) { 
+                    index++; 
+                    updateSlider(); 
+                }
+            });
+            
+            prevBtn.addEventListener("click", () => {
+                if (index > 0) { 
+                    index--; 
+                    updateSlider(); 
+                }
+            });
+
+            window.addEventListener("resize", () => {
+                // Ресетирај индекс при менување големина за да не избега траката надвор од рамката
+                index = 0;
+                updateSlider();
+            });
+        });
+    </script>
+</body>
+</html>
