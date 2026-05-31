@@ -135,88 +135,179 @@ body {
 // --- 4. МОДЕРНА НАВИГАЦИЈА (ЧИСТА И ЕЛЕГАНТНА) ---
 // ==========================================================================
 .navbar {
+
     position: fixed;
+
     top: 0;
+
     left: 0;
+
     width: 100%;
+
     z-index: 1000;
-    background-color: $color-primary; 
+
+    background-color: $color-primary;
+
     padding: 15px 0;
+
     transition: all 0.3s ease;
 
-    .nav-container { 
-        display: flex; 
-        justify-content: space-between; 
-        align-items: center; 
-        width: 90%;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-    
-    .logo { 
-        text-decoration: none;
-    }
-    
-    .nav-links {
+
+
+    .nav-container {
+
         display: flex;
+
+        justify-content: space-between;
+
+        align-items: center;
+
+        width: 90%;
+
+        max-width: 1200px;
+
+        margin: 0 auto;
+
+    }
+
+   
+
+    .logo {
+
+        text-decoration: none;
+
+    }
+
+   
+
+    .nav-links {
+
+        display: flex;
+
         list-style: none;
-        gap: 40px; 
+
+        gap: 40px;
+
+
 
         a {
-            color: $color-white; 
+
+            color: $color-white;
+
             text-decoration: none;
-            font-size: 0.95rem; 
+
+            font-size: 0.95rem;
+
             text-transform: uppercase;
+
             border-bottom: 2px solid transparent;
+
             transition: 0.3s;
+
             &:hover { border-bottom-color: $color-white; }
+
         }
+
     }
 
+
+
     // --- ХАМБУРГЕР СТИЛОВИ ---
+
     .hamburger {
+
         display: none; // Скриено на десктоп
+
         cursor: pointer;
+
         background: transparent;
+
         border: none;
+
         padding: 5px;
 
+
+
         .bar {
+
             display: block;
+
             width: 25px;
+
             height: 3px;
+
             margin: 5px auto;
+
             background-color: $color-white;
+
             transition: all 0.3s ease-in-out;
+
         }
 
+
+
         &.active {
+
             .bar:nth-child(2) { opacity: 0; }
+
             .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+
             .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+        }
+
+    }
+
+}
+
+
+
+// --- МОБИЛЕН ПРИКАЗ ---
+
+@media (max-width: 768px) {
+
+   
+// --- МОБИЛЕН ПРИКАЗ ---
+@media (max-width: 768px) {
+    
+    .navbar .hamburger { 
+        display: block; 
+        z-index: 1001; 
+    }
+
+    .navbar .nav-links {
+        display: flex; 
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+        position: fixed;
+        top: 0;
+        right: -100%; 
+        width: 100%;
+        height: 100vh;
+        
+        // Овде ја додаваме проѕирноста
+        // Замени го $color-primary со неговата HEX/RGB вредност ако $color-primary нема RGB формат
+        background-color: rgba(red($color-primary), green($color-primary), blue($color-primary), 0.9);
+        backdrop-filter: blur(10px); // Ова прави „замаглен“ ефект на позадината
+        
+        transition: right 0.5s ease-in-out;
+        
+        &.active {
+            right: 0;
+        }
+
+        li {
+            margin: 20px 0;
+            a { 
+                font-size: 1.6rem; 
+                color: $color-white; // Осигури се дека текстот е читлив
+            }
         }
     }
 }
 
-// --- МОБИЛЕН ПРИКАЗ ---
-@media (max-width: 768px) {
-    
-    .navbar .hamburger { display: block; } // Се појавува на мобилен
-
-    .navbar .nav-links {
-        display: none; // Менито е скриено по дифолт
-        flex-direction: column;
-        position: absolute;
-        top: 70px; // Висината на navbar
-        left: 0;
-        width: 100%;
-        background-color: $color-primary;
-        padding: 20px 0;
-        text-align: center;
-        gap: 20px;
-        
-        &.active { display: flex; } // Кога е активно, се покажува
-    }
 }
 // ==========================================================================
 // ==
@@ -1030,19 +1121,37 @@ body {
         }
     }
 
-    // ROOMS SLIDER
+    
+    // ROOMS SLIDER - РЕЗИЗА
+    @media (max-width: 768px) {
+    /* 1. Дозволуваме wrapper-от да содржи повеќе елементи */
     .slider-wrapper {
-        padding: 0;
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        align-items: center !important;
     }
 
-    .card-room {
-        flex: 0 0 100%;
-        padding: 0;
+    /* 2. Контејнерот со картичките мора да биде 100% ширина */
+    .slider-container {
+        width: 100% !important;
+        order: -1; /* Ова ги става картичките секогаш први */
     }
 
+    /* 3. Стрелките ги форсираме да бидат видливи и да стојат една до друга */
     .slider-arrow {
-        display: none;
+        position: relative !important;
+        display: flex !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        transform: none !important;
+        margin: 20px 10px !important; /* Простор меѓу нив */
+        width: 50px !important;
+        height: 50px !important;
+        opacity: 1 !important; /* Осигуруваме дека не се скриени */
     }
+}
 
     // RESTAURANT
     .restaurant-intro-layout {

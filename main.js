@@ -1,10 +1,3 @@
-alert("JS се вчитува!");
-
-
-
-
-
-
 document.addEventListener("DOMContentLoaded", () => {
 
     // --- 1. ХАМБУРГЕР МЕНИ ---
@@ -42,14 +35,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // --- 3. СЛАЈДЕР ЗА СОБИТЕ (ROOMS SLIDER) ---
-    // Користиме ID: roomsSliderTrack, prevRoomBtn, nextRoomBtn
     const track = document.getElementById("roomsSliderTrack");
     const prevBtn = document.getElementById("prevRoomBtn");
     const nextBtn = document.getElementById("nextRoomBtn");
     
     if (track && prevBtn && nextBtn) {
         let index = 0;
-        const totalCards = document.querySelectorAll(".room-card").length;
+        // ОВДЕ Е ИЗМЕНАТА: го сменивме .room-card во .card-room
+        const totalCards = document.querySelectorAll(".card-room").length;
 
         function getCardsVisible() {
             if (window.innerWidth <= 650) return 1;
@@ -83,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // --- 4. ГАЛЕРИЈА ВО КАРТИЧКИТЕ (Ако ја користиш) ---
+    // --- 4. ГАЛЕРИЈА ВО КАРТИЧКИТЕ ---
     const cards = document.querySelectorAll(".card-room");
     cards.forEach(card => {
         const images = card.querySelectorAll(".slider-container img");

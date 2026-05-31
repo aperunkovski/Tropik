@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -170,24 +171,34 @@ body {
   transform: translateY(-8px) rotate(-45deg);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px) and (max-width: 768px) {
   .navbar .hamburger {
     display: block;
+    z-index: 1001;
   }
   .navbar .nav-links {
-    display: none;
+    display: flex;
     flex-direction: column;
-    position: absolute;
-    top: 70px;
-    left: 0;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    right: -100%;
     width: 100%;
-    background-color: #4a5d4e;
-    padding: 20px 0;
-    text-align: center;
-    gap: 20px;
+    height: 100vh;
+    background-color: rgba(74, 93, 78, 0.9);
+    backdrop-filter: blur(10px);
+    transition: right 0.5s ease-in-out;
   }
   .navbar .nav-links.active {
-    display: flex;
+    right: 0;
+  }
+  .navbar .nav-links li {
+    margin: 20px 0;
+  }
+  .navbar .nav-links li a {
+    font-size: 1.6rem;
+    color: #ffffff;
   }
 }
 .hero-fullscreen {
@@ -1225,16 +1236,35 @@ body {
     width: 100%;
     max-width: 280px;
   }
+}
+@media (max-width: 768px) and (max-width: 768px) {
+  /* 1. Дозволуваме wrapper-от да содржи повеќе елементи */
   .slider-wrapper {
-    padding: 0;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
   }
-  .card-room {
-    flex: 0 0 100%;
-    padding: 0;
+  /* 2. Контејнерот со картичките мора да биде 100% ширина */
+  .slider-container {
+    width: 100% !important;
+    order: -1; /* Ова ги става картичките секогаш први */
   }
+  /* 3. Стрелките ги форсираме да бидат видливи и да стојат една до друга */
   .slider-arrow {
-    display: none;
+    position: relative !important;
+    display: flex !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+    margin: 20px 10px !important; /* Простор меѓу нив */
+    width: 50px !important;
+    height: 50px !important;
+    opacity: 1 !important; /* Осигуруваме дека не се скриени */
   }
+}
+@media (max-width: 768px) {
   .restaurant-intro-layout {
     grid-template-columns: 1fr;
     gap: 35px;
