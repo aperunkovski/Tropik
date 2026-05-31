@@ -143,9 +143,7 @@ body {
     background-color: $color-primary; 
     padding: 15px 0;
     transition: all 0.3s ease;
-    
-    // Стандардната висина на овој navbar со падингот е околу 70px-75px
-    
+
     .nav-container { 
         display: flex; 
         justify-content: space-between; 
@@ -156,12 +154,7 @@ body {
     }
     
     .logo { 
-        font-family: $font-headings; 
-        font-size: 1.8rem; 
-        font-weight: 700; 
-        color: $color-white; 
-        text-decoration: none; 
-        letter-spacing: 1px;
+        text-decoration: none;
     }
     
     .nav-links {
@@ -173,18 +166,58 @@ body {
             color: $color-white; 
             text-decoration: none;
             font-size: 0.95rem; 
-            font-weight: 400;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            padding: 5px 0;
             border-bottom: 2px solid transparent;
             transition: 0.3s;
-            
             &:hover { border-bottom-color: $color-white; }
+        }
+    }
+
+    // --- ХАМБУРГЕР СТИЛОВИ ---
+    .hamburger {
+        display: none; // Скриено на десктоп
+        cursor: pointer;
+        background: transparent;
+        border: none;
+        padding: 5px;
+
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            background-color: $color-white;
+            transition: all 0.3s ease-in-out;
+        }
+
+        &.active {
+            .bar:nth-child(2) { opacity: 0; }
+            .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+            .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
         }
     }
 }
 
+// --- МОБИЛЕН ПРИКАЗ ---
+@media (max-width: 768px) {
+    
+    .navbar .hamburger { display: block; } // Се појавува на мобилен
+
+    .navbar .nav-links {
+        display: none; // Менито е скриено по дифолт
+        flex-direction: column;
+        position: absolute;
+        top: 70px; // Висината на navbar
+        left: 0;
+        width: 100%;
+        background-color: $color-primary;
+        padding: 20px 0;
+        text-align: center;
+        gap: 20px;
+        
+        &.active { display: flex; } // Кога е активно, се покажува
+    }
+}
 // ==========================================================================
 // ==
 

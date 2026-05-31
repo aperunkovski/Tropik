@@ -127,12 +127,7 @@ body {
   margin: 0 auto;
 }
 .navbar .logo {
-  font-family: "Playfair Display", serif;
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #ffffff;
   text-decoration: none;
-  letter-spacing: 1px;
 }
 .navbar .nav-links {
   display: flex;
@@ -143,17 +138,58 @@ body {
   color: #ffffff;
   text-decoration: none;
   font-size: 0.95rem;
-  font-weight: 400;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  padding: 5px 0;
   border-bottom: 2px solid transparent;
   transition: 0.3s;
 }
 .navbar .nav-links a:hover {
   border-bottom-color: #ffffff;
 }
+.navbar .hamburger {
+  display: none;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 5px;
+}
+.navbar .hamburger .bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  background-color: #ffffff;
+  transition: all 0.3s ease-in-out;
+}
+.navbar .hamburger.active .bar:nth-child(2) {
+  opacity: 0;
+}
+.navbar .hamburger.active .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.navbar .hamburger.active .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
 
+@media (max-width: 768px) {
+  .navbar .hamburger {
+    display: block;
+  }
+  .navbar .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background-color: #4a5d4e;
+    padding: 20px 0;
+    text-align: center;
+    gap: 20px;
+  }
+  .navbar .nav-links.active {
+    display: flex;
+  }
+}
 .hero-fullscreen {
   position: relative;
   width: 100%;
