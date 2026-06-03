@@ -16,175 +16,206 @@
 <body>
 
     <!-- Навигација -->
-    <nav class="navbar single-nav">
-        <div class="nav-container">
-            <a href="index.html" class="back-link">
-                <i class="fas fa-arrow-left"></i> Назад кон почетна
-            </a>
-            <a href="index.html" class="logo">TROPIK</a>
-        </div>
-    </nav>
+   <nav class="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="logo">
+            <img src="img/tropiklogo.png" width="110" height="40" alt="Tropik Лого">
+        </a>
 
-    <!-- Главен ресторански контејнер -->
-    <main class="container section menu-screen-layout">
-        <div class="section-title">
-            <span>Гастрономско Доживување</span>
-            <h2>Ресторан Тропик Мени</h2>
-        </div>
+        <button class="hamburger" id="hamburgerBtn">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
 
-        <div class="menu-grid-layout">
-            <!-- Лева страна: Вертикална навигација со категории -->
-            <aside class="menu-categories-sidebar">
-                <button class="menu-cat-btn active" data-target="predjadenje"><i class="fas fa-cheese"></i> Предјадења</button>
-                <button class="menu-cat-btn" data-target="salati"><i class="fas fa-carrot"></i> Салати</button>
-                <button class="menu-cat-btn" data-target="skara"><i class="fas fa-drumstick-bite"></i> Скара</button>
-                <button class="menu-cat-btn" data-target="pici"><i class="fas fa-pizza-slice"></i> Пици</button>
-                <button class="menu-cat-btn" data-target="pastrmajlii"><i class="fas fa-bread-slice"></i> Пастрмајлии</button>
-                <button class="menu-cat-btn" data-target="apetisani"><i class="fas fa-seedling"></i> Апетисани</button>
-                <button class="menu-cat-btn" data-target="deserti"><i class="fas fa-ice-cream"></i> Десерти</button>
-                <button class="menu-cat-btn" data-target="kafe"><i class="fas fa-coffee"></i> Кафе & Топли пијалоци</button>
-                <button class="menu-cat-btn" data-target="bezalkoholni"><i class="fas fa-glass-water"></i> Безалкохолни</button>
-                <button class="menu-cat-btn" data-target="alkoholni"><i class="fas fa-wine-bottle"></i> Алкохолни пијалоци</button>
-            </aside>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#hero">Почетна</a></li>
+            <li><a href="#rooms">Апартмани</a></li>
+            <li><a href="#restaurant">Ресторан</a></li>
+            <li><a href="#contact">Контакт</a></li>
+        </ul>
+    </div>
+</nav>
+<main class="container section menu-screen-layout">
+    <div class="section-title">
+        <span>Гастрономско Доживување</span>
+        <h2>Ресторан Тропик Мени</h2>
+    </div>
 
-            <!-- Десна страна: Динамични ценовници во картички -->
-            <section class="menu-items-display" id="menuDisplayZone">
+    <div class="menu-grid-layout">
+        <aside class="menu-categories-sidebar">
+            <button class="menu-cat-btn active" data-target="bezalkoholni"><i class="fas fa-glass-water"></i> Безалкохолни</button>
+            <button class="menu-cat-btn" data-target="alkoholni"><i class="fas fa-martini-glass"></i> Алкохолни</button>
+            <button class="menu-cat-btn" data-target="salati"><i class="fas fa-bowl-food"></i> Салати</button>
+            <button class="menu-cat-btn" data-target="predjadenje"><i class="fas fa-utensils"></i> Предјадења</button>
+            <button class="menu-cat-btn" data-target="skara"><i class="fas fa-fire-burner"></i> Скара</button>
+            <button class="menu-cat-btn" data-target="pici"><i class="fas fa-pizza-slice"></i> Пици</button>
+            <button class="menu-cat-btn" data-target="pastrmajlii"><i class="fas fa-bread-slice"></i> Пастрмајлии</button>
+            <button class="menu-cat-btn" data-target="deserti"><i class="fas fa-ice-cream"></i> Десерти</button>
+            <button class="menu-cat-btn" data-target="kafe"><i class="fas fa-coffee"></i> Кафе & Топли</button>
+            <button class="menu-cat-btn" data-target="apetisani">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><path d="M12 2s-4 2-4 6 4 6 4 6 4-2 4-6-4-6-4-6z"></path><path d="M12 14s-4 2-4 6 4 6 4 6 4-2 4-6-4-6-4-6z"></path></svg>
+                Апетисани
+            </button>
+        </aside>
+
+        <section class="menu-items-display" id="menuDisplayZone">
+            <!-- БЕЗАЛКОХОЛНИ -->
+            <div class="menu-panel active" id="bezalkoholni">
+                <div class="menu-card-item"><div class="menu-item-details"><h4>Скопско 0.5л</h4></div><div class="menu-item-price">80 ден.</div></div>
+                <div class="menu-card-item"><div class="menu-item-details"><h4>Даб 0.5л</h4></div><div class="menu-item-price">80 ден.</div></div>
+                <div class="menu-card-item"><div class="menu-item-details"><h4>Амстел 0.33л</h4></div><div class="menu-item-price">100 ден.</div></div>
+                <div class="menu-card-item"><div class="menu-item-details"><h4>Туборг 0.33л</h4></div><div class="menu-item-price">100 ден.</div></div>
+                <div class="menu-card-item"><div class="menu-item-details"><h4>Хајникен 0.33л</h4></div><div class="menu-item-price">120 ден.</div></div>
+            </div>
+
+            <!-- АЛКОХОЛНИ -->
+            <div class="menu-panel" id="alkoholni">
+                <div class="menu-card-item"><div class="menu-item-details"><h4>Џејмсон / Ред Лабел (0.05л)</h4></div><div class="menu-item-price">120 ден.</div></div>
+                <div class="menu-card-item"><div class="menu-item-details"><h4>Џек Даниелс (0.05л)</h4></div><div class="menu-item-price">150 ден.</div></div>
+                <div class="menu-card-item"><div class="menu-item-details"><h4>Ракија Лозова / Бела (0.05л)</h4></div><div class="menu-item-price">50 ден.</div></div>
+                <div class="menu-card-item"><div class="menu-item-details"><h4>Мастика / Узо / Коњак (0.05л)</h4></div><div class="menu-item-price">60 ден.</div></div>
+                <div class="menu-card-item"><div class="menu-item-details"><h4>Вотка Вигор (0.05л)</h4></div><div class="menu-item-price">60 ден.</div></div>
+                <div class="menu-card-item"><div class="menu-item-details"><h4>Вотка Финландија (0.05л)</h4></div><div class="menu-item-price">80 ден.</div></div>
+                <div class="menu-card-item"><div class="menu-item-details"><h4>Шток / Вињак (0.05л)</h4></div><div class="menu-item-price">70 ден.</div></div>
+                <div class="menu-card-item"><div class="menu-item-details"><h4>Јегер (0.05л)</h4></div><div class="menu-item-price">100 ден.</div></div>
+                <div class="menu-card-item"><div class="menu-item-details"><h4>Т'га за југ (0.2л / 0.7л)</h4></div><div class="menu-item-price">150/450 ден.</div></div>
+            </div>
+
+            <!-- САЛАТИ -->
+            <div class="menu-panel" id="salati">
+                <div class="menu-card-item"><div class="menu-item-details"><h4>Шопска салата</h4><p>домат, краставица, пиперка, кромид, сирење</p></div><div class="menu-item-price">100/150 ден.</div></div>
+                <div class="menu-card-item"><div class="menu-item-details"><h4>Овчарска салата</h4><p>домат, краставица, пиперка, кромид, сирење, шунка, јајце</p></div><div class="menu-item-price">180 ден.</div></div>
+                <div class="menu-card-item"><div class="menu-item-details"><h4>Цезар салата</h4><p>пилешко, зелена салата, крутони, дресинг</p></div><div class="menu-item-price">180 ден.</div></div>
+                <div class="menu-card-item"><div class="menu-item-details"><h4>Селска салата</h4><p>домат, краставица, кромид, сирење, феферон</p></div><div class="menu-item-price">180 ден.</div></div>
+                <div class="menu-card-item"><div class="menu-item-details"><h4>Таратур</h4><p>кисело млеко, краставица, лук</p></div><div class="menu-item-price">120 ден.</div></div>
+                <div class="menu-card-item"><div class="menu-item-details"><h4>Домат салата</h4><p>свеж домат</p></div><div class="menu-item-price">100 ден.</div></div>
+                <div class="menu-card-item"><div class="menu-item-details"><h4>Краставица салата</h4><p>свежа краставица</p></div><div class="menu-item-price">100 ден.</div></div>
+                <div class="menu-card-item"><div class="menu-item-details"><h4>Зелка салата</h4><p>свежа зелка</p></div><div class="menu-item-price">80 ден.</div></div>
+                <div class="menu-card-item"><div class="menu-item-details"><h4>Зелена салата</h4><p>свежа зелена марула</p></div><div class="menu-item-price">80 ден.</div></div>
+                <div class="menu-card-item"><div class="menu-item-details"><h4>Печена пиперка</h4><p>печена бабура со лук</p></div><div class="menu-item-price">100 ден.</div></div>
+            </div>
+
+            <!-- ПРЕДЈАДЕНЈА -->
+            <div class="menu-panel" id="predjadenje">
+                <div class="menu-card-item"><div class="menu-item-details"><h4>Парче овчо сирење</h4></div><div class="menu-item-price">100 ден.</div></div>
+                <div class="menu-card-item"><div class="menu-item-details"><h4>Биено сирење на скара</h4></div><div class="menu-item-price">70 ден.</div></div>
+                <div class="menu-card-item"><div class="menu-item-details"><h4>Ајвар / Пинџур (200г)</h4></div><div class="menu-item-price">100 ден.</div></div>
+                <div class="menu-card-item"><div class="menu-item-details"><h4>Похуван кашкавал</h4></div><div class="menu-item-price">100 ден.</div></div>
+                <div class="menu-card-item"><div class="menu-item-details"><h4>Поховани зденки</h4></div><div class="menu-item-price">140 ден.</div></div>
+                <div class="menu-card-item"><div class="menu-item-details"><h4>Похован кромид</h4></div><div class="menu-item-price">80 ден.</div></div>
+                <div class="menu-card-item"><div class="menu-item-details"><h4>Поховани тиквици</h4></div><div class="menu-item-price">120 ден.</div></div>
+                <div class="menu-card-item"><div class="menu-item-details"><h4>Пилешки прсти</h4></div><div class="menu-item-price">170 ден.</div></div>
+                <div class="menu-card-item"><div class="menu-item-details"><h4>Поховани печурки</h4></div><div class="menu-item-price">120 ден.</div></div>
+                <div class="menu-card-item"><div class="menu-item-details"><h4>Поховани Тропик топки</h4></div><div class="menu-item-price">100 ден.</div></div>
+                <div class="menu-card-item"><div class="menu-item-details"><h4>Пирошка</h4></div><div class="menu-item-price">80 ден.</div></div>
+                <div class="menu-card-item"><div class="menu-item-details"><h4>Помфрит</h4></div><div class="menu-item-price">100 ден.</div></div>
+                <div class="menu-card-item"><div class="menu-item-details"><h4>Помфрит со сирење/кашкавал</h4></div><div class="menu-item-price">130 ден.</div></div>
+                <div class="menu-card-item"><div class="menu-item-details"><h4>Пекарски компир</h4></div><div class="menu-item-price">150 ден.</div></div>
+            </div>
+
+            <!-- СКАРА -->
+            <div class="menu-panel" id="skara">
+                <div class="menu-card-item"><div class="menu-item-details"><h4>Ќебап (1 парче)</h4></div><div class="menu-item-price">10 ден.</div></div>
+                <div class="menu-card-item"><div class="menu-item-details"><h4>Уштипци (100г)</h4></div><div class="menu-item-price">60 ден.</div></div>
+                <div class="menu-card-item"><div class="menu-item-details"><h4>Плескавица (100г)</h4></div><div class="menu-item-price">60 ден.</div></div>
+                <div class="menu-card-item"><div class="menu-item-details"><h4>Шарска плескавица (250г)</h4></div><div class="menu-item-price">160 ден.</div></div>
+                <div class="menu-card-item"><div class="menu-item-details"><h4>Пилешко филе (250г)</h4></div><div class="menu-item-price">160 ден.</div></div>
+                <div class="menu-card-item"><div class="menu-item-details"><h4>Бела вешалица (250г)</h4></div><div class="menu-item-price">180 ден.</div></div>
+                <div class="menu-card-item"><div class="menu-item-details"><h4>Пушена вешалица (250г)</h4></div><div class="menu-item-price">200 ден.</div></div>
+                <div class="menu-card-item"><div class="menu-item-details"><h4>Свински врат (250г)</h4></div><div class="menu-item-price">160 ден.</div></div>
+                <div class="menu-card-item"><div class="menu-item-details"><h4>Свински бифтек (400г)</h4></div><div class="menu-item-price">400 ден.</div></div>
+                <div class="menu-card-item"><div class="menu-item-details"><h4>Мешана скара (400г)</h4></div><div class="menu-item-price">300 ден.</div></div>
+            </div>
+
+            <!-- ПИЦИ -->
+            <div class="menu-panel" id="pici">
+                <div class="menu-card-item"><div class="menu-item-details"><h4>Капричиоза</h4></div><div class="menu-item-price">190 ден.</div></div>
+                <div class="menu-card-item"><div class="menu-item-details"><h4>Пица Тропик</h4></div><div class="menu-item-price">210 ден.</div></div>
+                <div class="menu-card-item"><div class="menu-item-details"><h4>Вегетаријанска</h4></div><div class="menu-item-price">220 ден.</div></div>
+            </div>
+
+            <!-- ПАСТРМАЈЛИИ -->
+            <div class="menu-panel" id="pastrmajlii">
+                <div class="menu-card-item"><div class="menu-item-details"><h4>Пастрмајлија (Свинска/Пилешка)</h4></div><div class="menu-item-price">190 ден.</div></div>
+                <div class="menu-card-item"><div class="menu-item-details"><h4>Фурнарки</h4></div><div class="menu-item-price">100 ден.</div></div>
+            </div>
+
+            <!-- ДЕСЕРТИ -->
+            <div class="menu-panel" id="deserti">
+                <div class="menu-card-item"><div class="menu-item-details"><h4>Палачинка (Крем/Мед/Шумско)</h4></div><div class="menu-item-price">60-80 ден.</div></div>
+                <div class="menu-card-item"><div class="menu-item-details"><h4>Баклава (3бр)</h4></div><div class="menu-item-price">100 ден.</div></div>
+                <div class="menu-card-item"><div class="menu-item-details"><h4>Тиква со ореви</h4></div><div class="menu-item-price">120 ден.</div></div>
+                <div class="menu-card-item"><div class="menu-item-details"><h4>Чизкејк</h4></div><div class="menu-item-price">80 ден.</div></div>
+                <div class="menu-card-item"><div class="menu-item-details"><h4>Чоколадна торта</h4></div><div class="menu-item-price">100 ден.</div></div>
+            </div>
+
+            <!-- КАФЕ -->
+            <div class="menu-panel" id="kafe">
+                <div class="menu-card-item"><div class="menu-item-details"><h4>Еспресо</h4></div><div class="menu-item-price">40 ден.</div></div>
+                <div class="menu-card-item"><div class="menu-item-details"><h4>Макијато</h4></div><div class="menu-item-price">50 ден.</div></div>
+                <div class="menu-card-item"><div class="menu-item-details"><h4>Турско кафе</h4></div><div class="menu-item-price">30 ден.</div></div>
+            </div>
+
+            <!-- АПЕТИСАНИ -->
+            <div class="menu-panel" id="apetisani">
+                <div class="menu-card-item"><div class="menu-item-details"><h4>Лешници</h4></div><div class="menu-item-price">180 ден.</div></div>
+                <div class="menu-card-item"><div class="menu-item-details"><h4>Бадеми</h4></div><div class="menu-item-price">180 ден.</div></div>
+            </div>
+        </section>
+    </div>
+</main>
+     <!-- Футер -->
+<footer class="footer-modern">
+    <div class="container">
+        <div class="footer-split-layout">
+            
+            <!-- Лева страна: Слика од мапа + Копче -->
+            <div class="footer-map-side">
+                <h4>Најдете нè тука</h4>
+                <p class="map-location-sub"><i class="fas fa-map-marker-alt"></i> Ул. Пехчевски Водопади бр. 12, Пехчево</p>
                 
-                <!-- ПРЕДЈАДЕНЈА -->
-                <div class="menu-panel active" id="predjadenje">
-                    <div class="menu-card-item">
-                        <div class="menu-item-details"><h4>Похуван Кашкавал</h4><p>Крцкав похуван кашкавал со тартар сос</p></div>
-                        <div class="menu-item-price">€4.50</div>
-                    </div>
-                    <div class="menu-card-item">
-                        <div class="menu-item-details"><h4>Македонско предјадење</h4><p>Ајвар, сирење, маслинки и домашен леб</p></div>
-                        <div class="menu-item-price">€6.00</div>
-                    </div>
-                    <div class="menu-card-item">
-                        <div class="menu-item-details"><h4>Печурки во зачини</h4><p>Свежи шампињони динстани во путер и лук</p></div>
-                        <div class="menu-item-price">€3.80</div>
+                <div class="map-container-final">
+                    <!-- Твојата слика (скриншот) -->
+                    <img src="img/map.png" alt="Локација на Tropik" class="map-image">
+                    
+                    <!-- Копче кое лебди преку мапата -->
+                    <a href="https://maps.app.goo.gl/fLiPCZZRt53LDFW16" target="_blank" class="btn-map-overlay">
+                        <i class="fas fa-directions"></i> Отвори во Maps
+                    </a>
+                </div>
+            </div>
+
+            <!-- Десна страна: Лого, Социјални и Контакти -->
+            <div class="footer-info-side">
+                <div class="info-brand-block">
+                    <a href="index.html" class="footer-logo">TROPIK</a>
+                    <div class="footer-socials">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
 
-                <!-- САЛАТИ -->
-                <div class="menu-panel" id="salati">
-                    <div class="menu-card-item">
-                        <div class="menu-item-details"><h4>Шопска Салата</h4><p>Свеж домат, краставица, кромид и рендано сирење</p></div>
-                        <div class="menu-item-price">€3.20</div>
+                <div class="info-contact-grid">
+                    <div class="contact-col">
+                        <h5>Апартмани</h5>
+                        <div class="contact-item"><i class="fas fa-phone-alt"></i> <a href="tel:+38970111222">+389 70 111 222</a></div>
+                        <div class="contact-item"><i class="fas fa-envelope"></i> <a href="mailto:apartments@tropik.com">apartments@tropik.com</a></div>
                     </div>
-                    <div class="menu-card-item">
-                        <div class="menu-item-details"><h4>Цезар Салата</h4><p>Пилешко филе, марула, крутони и пармезан дресинг</p></div>
-                        <div class="menu-item-price">€5.20</div>
-                    </div>
-                </div>
-
-                <!-- СКАРА -->
-                <div class="menu-panel" id="skara">
-                    <div class="menu-card-item">
-                        <div class="menu-item-details"><h4>Шарска Плескавица</h4><p>Сочно мелено месо полнето со кашкавал</p></div>
-                        <div class="menu-item-price">€6.50</div>
-                    </div>
-                    <div class="menu-card-item">
-                        <div class="menu-item-details"><h4>Пилешки Стек</h4><p>Грилован стек на жар со гарнир од зеленчук</p></div>
-                        <div class="menu-item-price">€5.80</div>
-                    </div>
-                    <div class="menu-card-item">
-                        <div class="menu-item-details"><h4>Тропик Вешалица</h4><p>Премиум свинско филе со зачински путер</p></div>
-                        <div class="menu-item-price">€7.80</div>
+                    <div class="contact-col">
+                        <h5>Ресторан</h5>
+                        <div class="contact-item"><i class="fas fa-phone-alt"></i> <a href="tel:+38971333444">+389 71 333 444</a></div>
+                        <div class="contact-item"><i class="fas fa-clock"></i> <span>12:00 - 23:00</span></div>
                     </div>
                 </div>
-
-                <!-- ПИЦИ -->
-                <div class="menu-panel" id="pici">
-                    <div class="menu-card-item">
-                        <div class="menu-item-details"><h4>Капричиоза</h4><p>Доматен сос, кашкавал, шунка, печурки</p></div>
-                        <div class="menu-item-price">€5.50</div>
-                    </div>
-                    <div class="menu-card-item">
-                        <div class="menu-item-details"><h4>Кватро Формаџи</h4><p>Четири видови на селектирани топени кашкавали</p></div>
-                        <div class="menu-item-price">€6.20</div>
-                    </div>
-                </div>
-
-                <!-- ПАСТРМАЈЛИИ -->
-                <div class="menu-panel" id="pastrmajlii">
-                    <div class="menu-card-item">
-                        <div class="menu-item-details"><h4>Традиционална Свинска</h4><p>Домашно тесто, сочно свинско месо и свинска маст</p></div>
-                        <div class="menu-item-price">€6.00</div>
-                    </div>
-                    <div class="menu-card-item">
-                        <div class="menu-item-details"><h4>Пилешка Пастрмајлија</h4><p>Крцкаво тесто со сечкано пилешко филе и јајце</p></div>
-                        <div class="menu-item-price">€6.20</div>
-                    </div>
-                </div>
-
-                <!-- АПЕТИСАНИ -->
-                <div class="menu-panel" id="apetisani">
-                    <div class="menu-card-item">
-                        <div class="menu-item-details"><h4>Печен Бадем</h4><p>Свежо печени солени бадеми</p></div>
-                        <div class="menu-item-price">€3.00</div>
-                    </div>
-                    <div class="menu-card-item">
-                        <div class="menu-item-details"><h4>Микс Лешник & Индиски орев</h4><p>Класичен сув мезенлак за со вино</p></div>
-                        <div class="menu-item-price">€3.50</div>
-                    </div>
-                </div>
-
-                <!-- ДЕСЕРТИ -->
-                <div class="menu-panel" id="deserti">
-                    <div class="menu-card-item">
-                        <div class="menu-item-details"><h4>Чоколадно Суфле</h4><p>Топол колач со течно чоколадно срце и сладолед</p></div>
-                        <div class="menu-item-price">€3.50</div>
-                    </div>
-                    <div class="menu-card-item">
-                        <div class="menu-item-details"><h4>Домашно Трилече</h4><p>Меко млечно задоволство со карамел прелив</p></div>
-                        <div class="menu-item-price">€2.80</div>
-                    </div>
-                </div>
-
-                <!-- КАФЕ -->
-                <div class="menu-panel" id="kafe">
-                    <div class="menu-card-item">
-                        <div class="menu-item-details"><h4>Еспресо / Макијато</h4><p>Премиум италијанско еспресо зрно</p></div>
-                        <div class="menu-item-price">€1.50</div>
-                    </div>
-                    <div class="menu-card-item">
-                        <div class="menu-item-details"><h4>Капучино</h4><p>Со кремаста млечна пена и какао прав</p></div>
-                        <div class="menu-item-price">€1.80</div>
-                    </div>
-                </div>
-
-                <!-- БЕЗАЛКОХОЛНИ -->
-                <div class="menu-panel" id="bezalkoholni">
-                    <div class="menu-card-item">
-                        <div class="menu-item-details"><h4>Кока Кола / Фанта / Спрајт</h4><p>0.33л стаклено шишенце</p></div>
-                        <div class="menu-item-price">€2.00</div>
-                    </div>
-                    <div class="menu-card-item">
-                        <div class="menu-item-details"><h4>Свежо цеден портокал</h4><p>Природен чист сок без додаден шеќер</p></div>
-                        <div class="menu-item-price">€2.80</div>
-                    </div>
-                </div>
-
-                <!-- АЛКОХОЛНИ -->
-                <div class="menu-panel" id="alkoholni">
-                    <div class="menu-card-item">
-                        <div class="menu-item-details"><h4>Лозова Ракија - Стара</h4><p>Домашна селектирана ракија 0.05л</p></div>
-                        <div class="menu-item-price">€2.20</div>
-                    </div>
-                    <div class="menu-card-item">
-                        <div class="menu-item-details"><h4>Наше Локално Вино (Црвено / Бело)</h4><p>Премиум чаша вино од локални визби</p></div>
-                        <div class="menu-item-price">€3.50</div>
-                    </div>
-                </div>
-
-            </section>
+            </div>
         </div>
-    </main>
 
-    <footer class="footer-compact">
-        <p>&copy; 2026 Tropik Ресорт. Сите права се задржани.</p>
-    </footer>
+        <div class="footer-bottom">
+            <p>&copy; 2026 ТРОПИК Ресорт. Сите права се задржани.</p>
+        </div>
+    </div>
+</footer>
 
     <!-- SCSS Компајлер -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sass.js/0.11.1/sass.sync.min.js"></script>
